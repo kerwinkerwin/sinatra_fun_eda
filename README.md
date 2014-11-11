@@ -3,7 +3,7 @@ The Sinatra Skeleton:
 
 1. Provides a foundation for building challenges or creating a new Sinatra application.
 2. Demonstrates a reasonable set of practices around building Sinatra applications.
-3. Eases the transition to Rails for Dev Bootcamp students
+3. Eases the transition to Rails for EDA students
 
 ### Quickstart
 
