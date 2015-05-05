@@ -1,23 +1,25 @@
 get '/' do
-   if session[:user] != nil
-     puts "index"
+   if session[:user]
      erb :index
-
    else
      erb :sign_in
    end
 end
 
 post '/sign_in' do
-  @user = User.find_by(email:params[:email])
-  if @user.password != params[:password]
-    @error = "wrong credentials"
-    erb :sign_in
+  if User.find_by(email:params[:email])
+    if @user.password != params[:password]
+      @error = "wrong credentials"
+      erb :sign_in
+    else
+      session[:user] = @user
+      erb :index
+    end
   else
-    session[:user] = @user
-    puts session[:user]
-    erb :index
+    @error="please enter email"
+    erb :sign_in
   end
+
 end
 
 get '/sign_out' do
