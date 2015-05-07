@@ -5,8 +5,12 @@ get '/' do
      erb :sign_in
    end
 end
-
+get '/sign_in' do
+  erb :sign_in
+end
 post '/sign_in' do
+  puts params[:email]
+  puts params[:password]
   if User.find_by(email:params[:email])
     if @user.password != params[:password]
       @error = "wrong credentials"

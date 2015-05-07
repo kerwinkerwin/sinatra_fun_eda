@@ -12,9 +12,13 @@ require 'shoulda-matchers'
 require 'rack/test'
 require 'capybara'
 require 'capybara/rspec'
+require 'machinist'
+require 'selenium-webdriver'
 
 RSpec.configure do |config|
   config.include Rack::Test::Methods
+  config.include Capybara::DSL
+  Capybara.default_driver = :selenium
 end
 
 def app

@@ -19,6 +19,8 @@ group :test do
   gem 'rack-test'
   gem 'rspec'
   gem 'capybara'
+  gem 'machinist', '~> 2.0'
+  gem 'selenium-webdriver'
 end
 
 group :test, :development do
