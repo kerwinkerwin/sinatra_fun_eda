@@ -28,15 +28,19 @@ describe "sign-in" , :type => :feature do
    end
  end
 end
-# describe "sign out process"
-#    it "signs me out" do
-#      visit 'localhost:9393'
-#      within("#sign_in") do
-#        fill_in 'email', :with => "#{@user1.email}"
-#        fill_in 'password', :with => "#{@user1.password}"
-#      end
-#      click_button 'Log in'
-#      click_button 'Log out'
-#      expect(page).to have_content "Email"
-#    end
-#  end
+
+describe "sign out process", :type=> :feature do
+  before do
+   @user1 = User.create(:email => 'test@test.com', :password => '123')
+  end
+   it "signs me out" do
+     visit 'localhost:9393'
+     within("#sign_in") do
+       fill_in 'email', :with => "#{@user1.email}"
+       fill_in 'password', :with => "#{@user1.password}"
+     end
+     click_button 'Log in'
+     click_button 'Log out'
+     expect(page).to have_content "Email"
+   end
+ end
