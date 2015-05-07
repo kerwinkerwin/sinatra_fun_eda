@@ -59,17 +59,20 @@ describe "sign out process", :type=> :feature do
    before do
     visit "localhost:9393"
     click_button 'Sign up'
+
    end
    context "with valid information" do
      it "creates a user" do
        fill_in 'email', :with=>'onemore@more.com'
        fill_in 'password', :with=>'123'
+       expect(page).to have_content "hello"
      end
    end
    context "with a user already in db" do
      it "sends an error message" do
        fill_in 'email', :with=>'test@test.com'
        fill_in 'password', :with=>'123'
+       expect(page).to have_content "sorry that email is already registered"
      end
    end
 
