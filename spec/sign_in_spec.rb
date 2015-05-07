@@ -44,3 +44,33 @@ describe "sign out process", :type=> :feature do
      expect(page).to have_content "Email"
    end
  end
+
+ describe "sign up process", :type=> :feature do
+   before do
+    visit "localhost:9393"
+   end
+   it "redirects to sign up page" do
+     click_button 'Sign up'
+     expect(page).to have_content "Sign up"
+   end
+ end
+
+ describe "sign up process", :type=> :feature do
+   before do
+    visit "localhost:9393"
+    click_button 'Sign up'
+   end
+   context "with valid information" do
+     it "creates a user" do
+       fill_in 'email', :with=>'onemore@more.com'
+       fill_in 'password', :with=>'123'
+     end
+   end
+   context "with a user already in db" do
+     it "sends an error message" do
+       fill_in 'email', :with=>'test@test.com'
+       fill_in 'password', :with=>'123'
+     end
+   end
+
+end
