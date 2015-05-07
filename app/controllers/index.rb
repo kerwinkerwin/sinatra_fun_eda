@@ -9,8 +9,8 @@ get '/sign_in' do
   erb :sign_in
 end
 post '/sign_in' do
-  # puts params[:email]
-  # puts params[:password]
+  puts params[:email]
+  puts params[:password]
   @user = User.find_by(email:params[:email])
   puts @user
   if @user
