@@ -9,9 +9,11 @@ get '/sign_in' do
   erb :sign_in
 end
 post '/sign_in' do
-  puts params[:email]
-  puts params[:password]
-  if User.find_by(email:params[:email])
+  # puts params[:email]
+  # puts params[:password]
+  @user = User.find_by(email:params[:email])
+  puts @user
+  if @user
     if @user.password != params[:password]
       @error = "wrong credentials"
       erb :sign_in
