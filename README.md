@@ -4,3 +4,5 @@ You want to look at capybara?
 You want to look at rspec?
 
 OHyeh
+
+https://cloud.githubusercontent.com/assets/9330672/7530084/92f614a4-f596-11e4-9848-62c500fb7556.jpg
