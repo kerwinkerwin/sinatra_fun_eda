@@ -12,7 +12,7 @@ describe "sign-in" , :type => :feature do
        fill_in 'password', :with => "#{@user1.password}"
      end
      click_button 'Log in'
-     expect(page).to have_content "hello"
+     expect(page).to have_css("#sign_out")
    end
  end
 
@@ -49,7 +49,7 @@ describe "sign out process", :type=> :feature do
    before do
     visit "localhost:9393"
    end
-   it "redirects to sign up page" do
+   xit "redirects to sign up page" do
      click_button 'Sign up'
      expect(page).to have_content "Sign up"
    end
@@ -63,15 +63,21 @@ describe "sign out process", :type=> :feature do
    end
    context "with valid information" do
      it "creates a user" do
-       fill_in 'email', :with=>'onemore@more.com'
-       fill_in 'password', :with=>'123'
+       within("#sign_up") do
+         fill_in 'email', :with=>'onemore@more.com'
+         fill_in 'password', :with=>'123'
+       end
+       click_button 'Sign up'
        expect(page).to have_content "hello"
      end
    end
    context "with a user already in db" do
      it "sends an error message" do
-       fill_in 'email', :with=>'test@test.com'
-       fill_in 'password', :with=>'123'
+       within("#sign_up") do
+         fill_in 'email', :with=>'test@test.com'
+         fill_in 'password', :with=>'123'
+       end
+       click_button 'Sign up'
        expect(page).to have_content "sorry that email is already registered"
      end
    end
