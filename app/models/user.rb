@@ -1,3 +1,3 @@
 class User < ActiveRecord::Base
-  # Remember to create a migration!
+  def to_s() puts "hello" end
 end

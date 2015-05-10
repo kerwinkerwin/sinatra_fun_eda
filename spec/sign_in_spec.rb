@@ -81,5 +81,4 @@ describe "sign out process", :type=> :feature do
        expect(page).to have_content "sorry that email is already registered"
      end
    end
-
 end
