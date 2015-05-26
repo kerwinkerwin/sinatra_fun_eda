@@ -19,7 +19,7 @@ RSpec.configure do |config|
   config.include Rack::Test::Methods
   config.include Capybara::DSL
   Capybara.default_driver = :selenium
-  Capybara.app_host = 'http://facebook.com'
+  Capybara.app_host = 'http://www.dominospizza.co.nz/'
 end
 
 
