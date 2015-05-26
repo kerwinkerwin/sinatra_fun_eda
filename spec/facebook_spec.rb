@@ -8,7 +8,7 @@ describe "sign-in" , :type => :feature do
  it "does stuff" do
    within("#login_form") do
      fill_in 'email', :with => ""
-     fill_in 'pass', :with => ""
+     fill_in 'pass', :with => " "
    end
    click_button 'Log In'
    within('.innerWrap') do
