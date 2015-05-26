@@ -1,9 +1,15 @@
-<div id='sign_up'>
-  Sign up
-  <form action = '/sign_up' method = "post">
-    Email: <input type="text" name="email">
-    Password: <input type="password" name="password">
-    <input type="submit" value="Sign up">
-  </form>
-  <p><%=@error%></p>
+<div class= "container-fluid">
+  <div class ="row">
+    <div class="col-md-8">
+
+        <h1>Sign up</h1>
+          <form action = '/sign_up' method = "post">
+            Email: <input type="text" name="email">
+            Password: <input type="password" name="password">
+            <input type="submit" value="Sign up">
+          </form>
+          <p><%=@error%></p>
+      
+    </div>
+  </div>
 </div>
